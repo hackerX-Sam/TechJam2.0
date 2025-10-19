@@ -30,14 +30,14 @@ function ParticleBackground() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const particleCount = Math.floor((window.innerWidth * window.innerHeight) / 15000);
+    const particleCount = Math.floor((window.innerWidth * window.innerHeight) / 8000);
     particlesRef.current = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
-      size: Math.random() * 2 + 1,
-      opacity: Math.random() * 0.5 + 0.3,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      size: Math.random() * 1.5 + 0.5,
+      opacity: Math.random() * 0.8 + 0.2,
     }));
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -47,7 +47,7 @@ function ParticleBackground() {
     window.addEventListener('mousemove', handleMouseMove);
 
     const animate = () => {
-      ctx.fillStyle = 'rgba(17, 24, 39, 0.1)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particlesRef.current.forEach((particle, i) => {
@@ -70,17 +70,9 @@ function ParticleBackground() {
         particle.x = Math.max(0, Math.min(canvas.width, particle.x));
         particle.y = Math.max(0, Math.min(canvas.height, particle.y));
 
-        const gradient = ctx.createRadialGradient(
-          particle.x, particle.y, 0,
-          particle.x, particle.y, particle.size * 3
-        );
-        gradient.addColorStop(0, `rgba(59, 130, 246, ${particle.opacity})`);
-        gradient.addColorStop(0.5, `rgba(96, 165, 250, ${particle.opacity * 0.5})`);
-        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
-
-        ctx.fillStyle = gradient;
+        ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();
 
         particlesRef.current.forEach((otherParticle, j) => {
@@ -89,9 +81,9 @@ function ParticleBackground() {
           const dy = particle.y - otherParticle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 120) {
-            ctx.strokeStyle = `rgba(59, 130, 246, ${0.15 * (1 - distance / 120)})`;
-            ctx.lineWidth = 0.5;
+          if (distance < 100) {
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.08 * (1 - distance / 100)})`;
+            ctx.lineWidth = 0.3;
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
@@ -118,7 +110,7 @@ function ParticleBackground() {
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
-      style={{ background: 'linear-gradient(to bottom, #111827, #111827, #000000)' }}
+      style={{ background: 'linear-gradient(to bottom, #1e1b4b, #000000, #1e3a8a)' }}
     />
   );
 }

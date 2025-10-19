@@ -44,14 +44,14 @@ function Sponsors() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 px-6 bg-black/30">
+    <section id="sponsors" ref={sectionRef} className="py-32 px-6 bg-black/30">
       <div className="max-w-7xl mx-auto">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Our <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Sponsors</span>
+              Our <span className="bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">Sponsors</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full" />
+            <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full" />
             <p className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto">
               Powered by industry leaders who believe in innovation
             </p>
@@ -78,13 +78,13 @@ function Sponsors() {
               {sponsors.platinum.map((sponsor, index) => (
                 <div
                   key={index}
-                  className="group relative p-10 bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm border border-gray-700 rounded-2xl hover:border-blue-400/50 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(96,165,250,0.3)]"
+                  className="group relative p-10 bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-sm border border-purple-500/30 rounded-2xl hover:border-purple-400/50 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.3)]"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
                   <div className="relative flex flex-col items-center text-center">
-                    <sponsor.icon className="w-16 h-16 text-blue-400 mb-4" />
+                    <sponsor.icon className="w-16 h-16 text-purple-400 mb-4" />
                     <h3 className="text-2xl font-bold mb-2">{sponsor.name}</h3>
-                    <p className="text-blue-400 font-semibold">{sponsor.tier}</p>
+                    <p className="text-purple-400 font-semibold">{sponsor.tier}</p>
                   </div>
                 </div>
               ))}
@@ -94,7 +94,7 @@ function Sponsors() {
               {sponsors.gold.map((sponsor, index) => (
                 <div
                   key={index}
-                  className="group relative p-8 bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm border border-gray-800 rounded-2xl hover:border-yellow-600/50 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(202,138,4,0.3)]"
+                  className="group relative p-8 bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl hover:border-yellow-600/50 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(202,138,4,0.3)]"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
                   <div className="relative flex flex-col items-center text-center">
@@ -110,7 +110,7 @@ function Sponsors() {
               {sponsors.silver.map((sponsor, index) => (
                 <div
                   key={index}
-                  className="group relative p-6 bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm border border-gray-800 rounded-xl hover:border-gray-500/50 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(156,163,175,0.3)]"
+                  className="group relative p-6 bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-sm border border-purple-500/20 rounded-xl hover:border-gray-500/50 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(156,163,175,0.3)]"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-gray-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
                   <div className="relative flex flex-col items-center text-center">
@@ -124,7 +124,7 @@ function Sponsors() {
           </div>
 
           <div className="mt-16 text-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg font-semibold text-lg hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all duration-300">
+            <button className="px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-lg font-semibold text-lg hover:scale-105 hover:shadow-[0_0_30px_rgba(251,191,36,0.6)] transition-all duration-300 text-black">
               Become a Sponsor
             </button>
           </div>

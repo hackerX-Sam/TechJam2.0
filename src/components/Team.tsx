@@ -66,14 +66,14 @@ function Team() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 px-6">
+    <section id="team" ref={sectionRef} className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Meet the <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Team</span>
+              Meet the <span className="bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">Team</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full" />
+            <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full" />
             <p className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto">
               The brilliant minds bringing TechJam 2.0 to life
             </p>
@@ -85,7 +85,7 @@ function Team() {
                 key={index}
                 className="group relative"
               >
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-sm border border-purple-500/20 hover:border-yellow-500/50 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(251,191,36,0.3)]">
                   <div className="aspect-square overflow-hidden">
                     <img
                       src={member.image}
@@ -95,19 +95,19 @@ function Team() {
                   </div>
 
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-1 group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-xl font-bold mb-1 group-hover:text-yellow-400 transition-colors">
                       {member.name}
                     </h3>
                     <p className="text-gray-400 mb-4">{member.role}</p>
 
                     <div className="flex gap-3">
-                      <button className="p-2 bg-gray-800 rounded-lg hover:bg-blue-500 hover:scale-110 transition-all duration-300">
+                      <button className="p-2 bg-black/50 rounded-lg hover:bg-yellow-500 hover:scale-110 transition-all duration-300">
                         <Linkedin className="w-4 h-4" />
                       </button>
-                      <button className="p-2 bg-gray-800 rounded-lg hover:bg-blue-500 hover:scale-110 transition-all duration-300">
+                      <button className="p-2 bg-black/50 rounded-lg hover:bg-yellow-500 hover:scale-110 transition-all duration-300">
                         <Github className="w-4 h-4" />
                       </button>
-                      <button className="p-2 bg-gray-800 rounded-lg hover:bg-blue-500 hover:scale-110 transition-all duration-300">
+                      <button className="p-2 bg-black/50 rounded-lg hover:bg-yellow-500 hover:scale-110 transition-all duration-300">
                         <Mail className="w-4 h-4" />
                       </button>
                     </div>

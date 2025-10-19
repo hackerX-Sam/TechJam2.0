@@ -59,14 +59,14 @@ function Schedule() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 px-6">
+    <section id="schedule" ref={sectionRef} className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Event <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Schedule</span>
+              Event <span className="bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">Schedule</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full" />
+            <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full" />
             <p className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto">
               Three days packed with innovation, learning, and excitement
             </p>
@@ -76,10 +76,10 @@ function Schedule() {
             {scheduleData.map((day, dayIndex) => (
               <div
                 key={dayIndex}
-                className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-300"
+                className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8 hover:border-yellow-500/50 transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <Calendar className="w-6 h-6 text-blue-400" />
+                  <Calendar className="w-6 h-6 text-yellow-400" />
                   <div>
                     <h3 className="text-2xl font-bold">{day.day}</h3>
                     <p className="text-gray-400">{day.date}</p>
@@ -90,13 +90,13 @@ function Schedule() {
                   {day.events.map((event, eventIndex) => (
                     <div
                       key={eventIndex}
-                      className="group p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-blue-500/30 hover:bg-gray-900/70 transition-all duration-300"
+                      className="group p-4 bg-black/40 border border-purple-500/20 rounded-lg hover:border-yellow-500/30 hover:bg-purple-900/20 transition-all duration-300"
                     >
                       <div className="flex items-start gap-3">
                         <Clock className="w-4 h-4 text-blue-400 mt-1 flex-shrink-0" />
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm text-blue-400 font-medium">{event.time}</p>
-                          <h4 className="font-semibold mt-1 group-hover:text-blue-400 transition-colors">
+                          <p className="text-sm text-yellow-400 font-medium">{event.time}</p>
+                          <h4 className="font-semibold mt-1 group-hover:text-yellow-400 transition-colors">
                             {event.title}
                           </h4>
                           <div className="flex items-center gap-1 mt-1">
