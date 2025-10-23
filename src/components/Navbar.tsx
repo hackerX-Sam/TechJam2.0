@@ -15,7 +15,6 @@ function Navbar() {
   const navLinks = [
     { name: 'About', href: '#about' },
     { name: 'Timeline', href: '#schedule' },
-    { name: 'Themes', href: '#events' },
     { name: 'Team', href: '#team' },
     { name: 'Sponsors', href: '#sponsors' },
     { name: 'FAQs', href: '#footer' },
