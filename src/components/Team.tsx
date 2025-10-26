@@ -67,7 +67,7 @@ const managementTeam = [
   {
     name: 'Aakash Yadav',
     role: 'Management Co-Lead',
-    image: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://ik.imagekit.io/logicsync/WhatsApp%20Image%202025-09-20%20at%2015.26.20_b9ee85af.jpg?updatedAt=1759674101906',
     linkedin: '#',
     github: '#',
   },
