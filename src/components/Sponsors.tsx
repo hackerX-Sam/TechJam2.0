@@ -52,7 +52,7 @@ function Sponsors() {
               Our <span className="bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">Sponsors</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full" />
-            <p className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto font-cursive">
+            <p className="mt-6 text-gray-400 max-w-2xl mx-auto font-cursive">
               Powered by industry leaders who believe in innovation
             </p>
           </div>

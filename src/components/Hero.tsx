@@ -17,7 +17,7 @@ function Hero() {
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-cursive">
+          <p className="text-gray-400 max-w-3xl mx-auto leading-relaxed font-cursive">
             The Ultimate Tech & Innovation Fest
           </p>
 

@@ -97,7 +97,7 @@ function Schedule() {
               Event <span className="bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">Timeline</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full" />
-            <p className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto font-cursive">
+            <p className="mt-6 text-gray-400 max-w-2xl mx-auto font-cursive">
               Three rounds of innovation from submission to the grand finale
             </p>
           </div>
