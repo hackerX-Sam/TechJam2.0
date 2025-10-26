@@ -86,10 +86,10 @@ function Footer() {
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:info@techjam2.0.com"
+                  href="mailto:coderangerss@gmail.com"
                   className="text-gray-400 hover:text-blue-400 transition-colors"
                 >
-                  info@techjam2.0.com
+                  coderangerss@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -100,13 +100,14 @@ function Footer() {
                 >
                   +91 8860867899
                   +91 7905950558 
+                  +91 9313951253
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-400">
                   TIIPS Greater Noida Campus<br />
-                  New Delhi, India
+                  Uttar Pradesh, India
                 </span>
               </li>
             </ul>
