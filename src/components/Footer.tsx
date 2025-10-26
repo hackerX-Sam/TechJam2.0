@@ -98,13 +98,14 @@ function Footer() {
                   href="tel:+911234567890"
                   className="text-gray-400 hover:text-blue-400 transition-colors"
                 >
-                  +91 123 456 7890
+                  +91 8860867899
+                  +91 7905950558 
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-400">
-                  Tech Institute Campus<br />
+                  TIIPS Greater Noida Campus<br />
                   New Delhi, India
                 </span>
               </li>
