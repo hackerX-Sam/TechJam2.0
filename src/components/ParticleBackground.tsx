@@ -45,7 +45,7 @@ function ParticleBackground() {
     };
 
     const initializeElements = () => {
-      const particleCount = Math.floor((canvas.width * canvas.height) / 3500);
+      const particleCount = Math.floor((canvas.width * canvas.height) / 7000);
 
       particlesRef.current = Array.from({ length: particleCount }, () => ({
         x: Math.random() * canvas.width,
