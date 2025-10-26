@@ -74,7 +74,7 @@ function Team() {
               Meet the <span className="bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">Team</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full" />
-            <p className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto font-cursive">
               The brilliant minds bringing TechJam 2.0 to life
             </p>
           </div>

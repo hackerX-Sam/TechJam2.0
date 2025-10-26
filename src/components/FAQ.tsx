@@ -54,7 +54,7 @@ function FAQ() {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
           Frequently Asked Questions
         </h2>
-        <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto font-cursive">
           Got questions? We've got answers! Find everything you need to know about TechJam 2.0.
         </p>
 
