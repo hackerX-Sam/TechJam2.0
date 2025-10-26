@@ -111,7 +111,7 @@ function Team() {
           {/* CommandCenter Section */}
           <div className="mb-24">
             <h3 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              CommandCenter
+              Command Center
             </h3>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {CommandCenter.map((member, index) => (
