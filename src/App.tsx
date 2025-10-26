@@ -5,7 +5,6 @@ import About from './components/About';
 import Schedule from './components/Schedule';
 import Sponsors from './components/Sponsors';
 import Team from './components/Team';
-import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
         <Schedule />
         <Sponsors />
         <Team />
-        <FAQ />
         <Footer />
       </div>
     </div>
