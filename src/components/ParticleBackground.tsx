@@ -7,27 +7,14 @@ interface Particle {
   vy: number;
   size: number;
   opacity: number;
-  color: { r: number; g: number; b: number };
-  glowIntensity: number;
   twinkleSpeed: number;
   twinkleOffset: number;
-}
-
-interface NebulaCloud {
-  x: number;
-  y: number;
-  radius: number;
-  color: string;
-  opacity: number;
-  pulseSpeed: number;
-  pulseOffset: number;
 }
 
 function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
-  const nebulaCloudsRef = useRef<NebulaCloud[]>([]);
-  const mouseRef = useRef({ x: 0, y: 0 });
+  const mouseRef = useRef({ x: -1000, y: -1000 });
   const animationFrameRef = useRef<number>();
   const timeRef = useRef(0);
 
@@ -41,45 +28,21 @@ function ParticleBackground() {
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      initializeElements();
+      initializeParticles();
     };
 
-    const initializeElements = () => {
-      const particleCount = Math.floor((canvas.width * canvas.height) / 6000);
+    const initializeParticles = () => {
+      const particleCount = Math.floor((canvas.width * canvas.height) / 4000);
 
-      const colorPalette = [
-        { r: 147, g: 51, b: 234 },
-        { r: 59, g: 130, b: 246 },
-        { r: 251, g: 191, b: 36 },
-        { r: 236, g: 72, b: 153 },
-        { r: 139, g: 92, b: 246 },
-        { r: 167, g: 139, b: 250 },
-      ];
-
-      particlesRef.current = Array.from({ length: particleCount }, () => {
-        const colorIndex = Math.floor(Math.random() * colorPalette.length);
-        return {
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          size: Math.random() * 2 + 0.5,
-          opacity: Math.random() * 0.8 + 0.2,
-          color: colorPalette[colorIndex],
-          glowIntensity: Math.random() * 0.5 + 0.5,
-          twinkleSpeed: Math.random() * 0.02 + 0.01,
-          twinkleOffset: Math.random() * Math.PI * 2,
-        };
-      });
-
-      nebulaCloudsRef.current = Array.from({ length: 5 }, () => ({
+      particlesRef.current = Array.from({ length: particleCount }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 300 + 200,
-        color: colorPalette[Math.floor(Math.random() * colorPalette.length)],
-        opacity: Math.random() * 0.03 + 0.01,
-        pulseSpeed: Math.random() * 0.001 + 0.0005,
-        pulseOffset: Math.random() * Math.PI * 2,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: Math.random() * 1.5 + 0.5,
+        opacity: Math.random() * 0.8 + 0.2,
+        twinkleSpeed: Math.random() * 0.03 + 0.01,
+        twinkleOffset: Math.random() * Math.PI * 2,
       }));
     };
 
@@ -92,41 +55,13 @@ function ParticleBackground() {
 
     window.addEventListener('mousemove', handleMouseMove);
 
-    const drawNebulaClouds = () => {
-      nebulaCloudsRef.current.forEach((cloud) => {
-        const pulse = Math.sin(timeRef.current * cloud.pulseSpeed + cloud.pulseOffset) * 0.3 + 1;
-        const gradient = ctx.createRadialGradient(
-          cloud.x,
-          cloud.y,
-          0,
-          cloud.x,
-          cloud.y,
-          cloud.radius * pulse
-        );
-
-        const color =
-          typeof cloud.color === 'string'
-            ? cloud.color
-            : `${cloud.color.r}, ${cloud.color.g}, ${cloud.color.b}`;
-
-        gradient.addColorStop(0, `rgba(${color}, ${cloud.opacity * pulse})`);
-        gradient.addColorStop(0.5, `rgba(${color}, ${cloud.opacity * 0.5 * pulse})`);
-        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      });
-    };
-
     const animate = () => {
       timeRef.current++;
 
-      ctx.fillStyle = 'rgba(10, 5, 20, 0.15)';
+      ctx.fillStyle = 'rgba(10, 5, 20, 0.1)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      drawNebulaClouds();
-
-      particlesRef.current.forEach((particle, i) => {
+      particlesRef.current.forEach((particle) => {
         particle.x += particle.vx;
         particle.y += particle.vy;
 
@@ -134,19 +69,33 @@ function ParticleBackground() {
         const dy = mouseRef.current.y - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < 200) {
-          const force = (200 - distance) / 200;
+        if (distance < 150) {
+          const force = (150 - distance) / 150;
           const angle = Math.atan2(dy, dx);
-          const repelStrength = force * 3;
+          const repelStrength = force * 4;
 
-          particle.vx -= Math.cos(angle) * repelStrength * 0.1;
-          particle.vy -= Math.sin(angle) * repelStrength * 0.1;
+          particle.vx -= Math.cos(angle) * repelStrength * 0.15;
+          particle.vy -= Math.sin(angle) * repelStrength * 0.15;
 
-          particle.vx = Math.max(-2, Math.min(2, particle.vx));
-          particle.vy = Math.max(-2, Math.min(2, particle.vy));
+          particle.vx = Math.max(-3, Math.min(3, particle.vx));
+          particle.vy = Math.max(-3, Math.min(3, particle.vy));
         } else {
-          particle.vx *= 0.99;
-          particle.vy *= 0.99;
+          particle.vx *= 0.98;
+          particle.vy *= 0.98;
+
+          const baseSpeed = 0.5;
+          if (Math.abs(particle.vx) < 0.1) {
+            particle.vx += (Math.random() - 0.5) * 0.1;
+          }
+          if (Math.abs(particle.vy) < 0.1) {
+            particle.vy += (Math.random() - 0.5) * 0.1;
+          }
+
+          const currentSpeed = Math.sqrt(particle.vx ** 2 + particle.vy ** 2);
+          if (currentSpeed > 0 && currentSpeed < baseSpeed) {
+            particle.vx = (particle.vx / currentSpeed) * baseSpeed;
+            particle.vy = (particle.vy / currentSpeed) * baseSpeed;
+          }
         }
 
         if (particle.x < 0 || particle.x > canvas.width) {
@@ -158,7 +107,7 @@ function ParticleBackground() {
           particle.y = Math.max(0, Math.min(canvas.height, particle.y));
         }
 
-        const twinkle = Math.sin(timeRef.current * particle.twinkleSpeed + particle.twinkleOffset) * 0.3 + 0.7;
+        const twinkle = Math.sin(timeRef.current * particle.twinkleSpeed + particle.twinkleOffset) * 0.4 + 0.6;
         const finalOpacity = particle.opacity * twinkle;
 
         const gradient = ctx.createRadialGradient(
@@ -167,49 +116,22 @@ function ParticleBackground() {
           0,
           particle.x,
           particle.y,
-          particle.size * 3
+          particle.size * 4
         );
 
-        gradient.addColorStop(0, `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${finalOpacity})`);
-        gradient.addColorStop(0.5, `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${finalOpacity * 0.5})`);
-        gradient.addColorStop(1, `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, 0)`);
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${finalOpacity})`);
+        gradient.addColorStop(0.3, `rgba(255, 255, 255, ${finalOpacity * 0.6})`);
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
 
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
+        ctx.arc(particle.x, particle.y, particle.size * 4, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = `rgba(255, 255, 255, ${finalOpacity * 0.8})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${finalOpacity})`;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size * 0.7, 0, Math.PI * 2);
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();
-
-        particlesRef.current.forEach((otherParticle, j) => {
-          if (i <= j) return;
-          const dx = particle.x - otherParticle.x;
-          const dy = particle.y - otherParticle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 150) {
-            const opacity = 0.1 * (1 - distance / 150);
-            const gradient = ctx.createLinearGradient(
-              particle.x,
-              particle.y,
-              otherParticle.x,
-              otherParticle.y
-            );
-
-            gradient.addColorStop(0, `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${opacity})`);
-            gradient.addColorStop(1, `rgba(${otherParticle.color.r}, ${otherParticle.color.g}, ${otherParticle.color.b}, ${opacity})`);
-
-            ctx.strokeStyle = gradient;
-            ctx.lineWidth = 0.5;
-            ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.stroke();
-          }
-        });
       });
 
       animationFrameRef.current = requestAnimationFrame(animate);
