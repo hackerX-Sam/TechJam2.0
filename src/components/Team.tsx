@@ -3,42 +3,42 @@ import { Linkedin, Github, Mail } from 'lucide-react';
 
 const teamMembers = [
   {
-    name: 'Aryan Sharma',
+    name: 'HARSHIT',
     role: 'Event Coordinator',
     image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
   {
-    name: 'Priya Patel',
+    name: 'VARUN',
     role: 'Technical Head',
     image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
   {
-    name: 'Rahul Verma',
+    name: 'DHRUV',
     role: 'Design Lead',
     image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
   {
-    name: 'Ananya Singh',
+    name: 'MANI RAJ GOEL',
     role: 'Marketing Head',
     image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
   {
-    name: 'Vikram Kumar',
+    name: 'SAMIRAN',
     role: 'Operations Manager',
     image: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
   {
-    name: 'Sneha Reddy',
+    name: 'SAKSHAM',
     role: 'Sponsorship Lead',
     image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
   {
-    name: 'Aditya Mehta',
+    name: 'AAKASH',
     role: 'Content Manager',
     image: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
   {
-    name: 'Ishita Gupta',
+    name: 'DIVINA',
     role: 'Social Media Lead',
     image: 'https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
