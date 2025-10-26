@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Linkedin, Github } from 'lucide-react';
 
-const commandCenter = [
+const LEADORGANISERS = [
   {
     name: 'Harshit Gupta',
     role: 'President',
@@ -108,13 +108,13 @@ function Team() {
             </p>
           </div>
 
-          {/* Command Center Section */}
+          {/* CLEAD ORGANISERS Section */}
           <div className="mb-24">
             <h3 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Command Center
+              LEAD ORGANISERS
             </h3>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {commandCenter.map((member, index) => (
+              {LEADORGANISER.map((member, index) => (
                 <div
                   key={index}
                   className="group relative"
